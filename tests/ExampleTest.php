@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Mightymango\QuickDb\Tests;
 
 class ExampleTest extends TestCase
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Mightymango\QuickDb\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class QuickDbCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'quick_db';
 
     public $description = 'My command';
 
