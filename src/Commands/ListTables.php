@@ -37,8 +37,6 @@ class ListTables extends Command
         $tablesRows = [];
         $counter = 1;
         foreach ($tables as $table) {
-
-
             $row = [
                 $counter++,
                 $table->getName(),
