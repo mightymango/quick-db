@@ -2,9 +2,9 @@
 
 namespace Mightymango\QuickDb;
 
+use Mightymango\QuickDb\Commands\QuickDbCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Mightymango\QuickDb\Commands\QuickDbCommand;
 
 class QuickDbServiceProvider extends PackageServiceProvider
 {
