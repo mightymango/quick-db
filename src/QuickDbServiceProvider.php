@@ -2,9 +2,11 @@
 
 namespace Mightymango\QuickDb;
 
+use Mightymango\QuickDb\Commands\ListTable;
+use Mightymango\QuickDb\Commands\ListTables;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Mightymango\QuickDb\Commands\QuickDbCommand;
+
 
 class QuickDbServiceProvider extends PackageServiceProvider
 {
@@ -16,10 +18,11 @@ class QuickDbServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('quick_db')
+            ->name('quick-db')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_quick_db_table')
-            ->hasCommand(QuickDbCommand::class);
+            ->hasCommands([
+                ListTable::class,
+                ListTables::class,
+            ]);
     }
 }
