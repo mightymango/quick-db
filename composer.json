@@ -1,12 +1,12 @@
 {
     "name": "mightymango/quick-db",
-    "description": "Artisan database commands",
+    "description": "Artisan Database Commands",
     "keywords": [
         "MightyMango",
         "laravel",
-        "quick_db"
+        "quick-db"
     ],
-    "homepage": "https://github.com/mightymango/quick_db",
+    "homepage": "https://github.com/mightymango/quick-db",
     "license": "MIT",
     "authors": [
         {
