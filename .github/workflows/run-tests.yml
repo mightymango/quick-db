@@ -36,7 +36,7 @@ jobs:
       - name: Create database
         run: |
           sudo /etc/init.d/mysql start
-          mysql -u root -proot -e 'CREATE DATABASE IF NOT EXIST quick-db;'
+          mysql -u root -p root -e 'CREATE DATABASE IF NOT EXIST quick-db;'
 
       - name: Setup problem matchers
         run: |
