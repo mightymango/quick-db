@@ -1,4 +1,4 @@
-# Artisan database commands
+# Artisan Database Commands
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mightymango/quick_db.svg?style=flat-square)](https://packagist.org/packages/mightymango/quick_db)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/mightymango/quick_db/run-tests?label=tests)](https://github.com/mightymango/quick_db/actions?query=workflow%3Arun-tests+branch%3Amaster)
