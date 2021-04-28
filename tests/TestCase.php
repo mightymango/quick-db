@@ -2,7 +2,6 @@
 
 namespace Mightymango\QuickDb\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mightymango\QuickDb\QuickDbServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -38,9 +37,9 @@ class TestCase extends Orchestra
         // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
         $app['config']->set('database.connections.testbench', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
     }
 }

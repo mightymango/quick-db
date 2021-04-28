@@ -45,8 +45,7 @@ class ListTablesCommand extends Command
         $counter = 1;
 
         foreach ($tables as $table) {
-
-            if (!in_array($table->getName(), config('quick-db.skip'), true)) {
+            if (! in_array($table->getName(), config('quick-db.skip'), true)) {
                 $row = [
                     $counter++,
                     $table->getName(),
@@ -67,7 +66,6 @@ class ListTablesCommand extends Command
                 }
                 $tablesRows[] = $row;
             }
-
         }
 
         // Create a new Table instance.
