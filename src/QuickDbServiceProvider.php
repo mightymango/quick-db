@@ -7,7 +7,6 @@ use Mightymango\QuickDb\Commands\ListTablesCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-
 class QuickDbServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void

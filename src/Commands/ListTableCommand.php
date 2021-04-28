@@ -45,6 +45,7 @@ class ListTableCommand extends Command
         //Check if table exists
         if (! $columns) {
             $this->error('There is no table with that name.');
+
             return 1;
         }
 
@@ -57,7 +58,7 @@ class ListTableCommand extends Command
             $row = [
                 $counter,
                 $column->getName(),
-                $row[] = ltrim(strtolower($column->getType()) . ($column->getUnsigned() ? ' unsigned' : ''), '\\')
+                $row[] = ltrim(strtolower($column->getType()) . ($column->getUnsigned() ? ' unsigned' : ''), '\\'),
             ];
 
             if ($this->option('full')) {
@@ -84,7 +85,7 @@ class ListTableCommand extends Command
         // Set the table headers.
         $headers = ['#', 'column_name', 'data_type'];
         if ($this->option('full')) {
-            array_push( $headers, 'length', 'column_default', 'is_nullable') ;
+            array_push($headers, 'length', 'column_default', 'is_nullable') ;
         }
 
         $table->setHeaders($headers);
