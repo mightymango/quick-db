@@ -24,14 +24,20 @@ This is the contents of the published config file:
 
 ```php
 return [
+    /*
+     * An array of tables to skip when displaying a list of tables
+     */
+    'skip' => [
+
+    ]
 ];
 ```
 
 ## Usage
 
 ```php
-$quick_db = new Mightymango\QuickDb();
-echo $quick_db->echoPhrase('Hello, Mango!');
+php artisan db:table users
+php artisan db:tables
 ```
 
 ## Testing
