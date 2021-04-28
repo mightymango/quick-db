@@ -5,7 +5,12 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/mightymango/quick_db/Check%20&%20fix%20styling?label=code%20style)](https://github.com/mightymango/quick_db/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/mightymango/quick_db.svg?style=flat-square)](https://packagist.org/packages/mightymango/quick_db)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package adds commands to display information about your database.
+
+There are two coices:
+* Display a list of all tables with optional display of columns and indexes
+* Display the columns in a table
+
 
 ## Installation
 
