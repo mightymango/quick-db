@@ -24,5 +24,4 @@ class QuickDbServiceProvider extends PackageServiceProvider
                 ListTablesCommand::class,
             ]);
     }
-
 }

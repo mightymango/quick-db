@@ -9,7 +9,6 @@ class ListTablesCommandTest extends TestCase
     /** @test */
     public function it_can_list_tables(): void
     {
-
         $this->artisan('db:tables')
             ->expectsTable([
                 '#',
@@ -17,10 +16,8 @@ class ListTablesCommandTest extends TestCase
             ], [
                 [1, 'migrations'],
                 [2, 'password_resets'],
-                [3, 'users']
+                [3, 'users'],
             ])
             ->assertExitCode(0);
-
     }
-
 }

@@ -13,11 +13,11 @@ class ListTableCommandTest extends TestCase
             ->expectsTable([
                 '#',
                 'column_name',
-                'data_type'
+                'data_type',
             ], [
                 [1, 'email', 'string'],
                 [2, 'token', 'string'],
-                [3, 'created_at', 'datetime']
+                [3, 'created_at', 'datetime'],
             ])
             ->assertExitCode(0);
     }
