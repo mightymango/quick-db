@@ -2,8 +2,8 @@
 
 namespace Mightymango\QuickDb;
 
-use Mightymango\QuickDb\Commands\ListTable;
-use Mightymango\QuickDb\Commands\ListTables;
+use Mightymango\QuickDb\Commands\ListTableCommand;
+use Mightymango\QuickDb\Commands\ListTablesCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -21,8 +21,9 @@ class QuickDbServiceProvider extends PackageServiceProvider
             ->name('quick-db')
             ->hasConfigFile()
             ->hasCommands([
-                ListTable::class,
-                ListTables::class,
+                ListTableCommand::class,
+                ListTablesCommand::class,
             ]);
     }
+
 }

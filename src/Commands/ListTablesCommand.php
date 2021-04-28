@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Helper\TableStyle;
 
-class ListTables extends Command
+class ListTablesCommand extends Command
 {
     /**
      * The name and signature of the console command.
@@ -31,33 +31,43 @@ class ListTables extends Command
     public function handle(): int
     {
         $connection = DB::connection();
+
+        $platform = DB::getDoctrineSchemaManager()->getDatabasePlatform();
+        $platform->registerDoctrineTypeMapping('enum', 'string');
+
+        $platform = DB::getDoctrineConnection()->getDatabasePlatform();
+        $platform->registerDoctrineTypeMapping('enum', 'string');
+
         $schemeManager = $connection->getDoctrineSchemaManager();
         $tables = $schemeManager->listTables();
 
         $tablesRows = [];
         $counter = 1;
+
         foreach ($tables as $table) {
 
+            if (!in_array($table->getName(), config('quick-db.skip'), true)) {
+                $row = [
+                    $counter++,
+                    $table->getName(),
+                ];
 
-            $row = [
-                $counter++,
-                $table->getName(),
-            ];
-
-            if ($this->option('columns')) {
-                $row[] = count($table->getColumns());
-            }
-
-            if ($this->option('indexes')) {
-                $primaryKey = $table->getPrimaryKey();
-                $indexList = '';
-                foreach (array_keys($table->getIndexes()) as $index) {
-                    $indexList .= $index . PHP_EOL;
+                if ($this->option('columns')) {
+                    $row[] = count($table->getColumns());
                 }
-                $row[] = optional($primaryKey)->getName();
-                $row[] = $indexList;
+
+                if ($this->option('indexes')) {
+                    $primaryKey = $table->getPrimaryKey();
+                    $indexList = '';
+                    foreach (array_keys($table->getIndexes()) as $index) {
+                        $indexList .= $index . PHP_EOL;
+                    }
+                    $row[] = optional($primaryKey)->getName();
+                    $row[] = $indexList;
+                }
+                $tablesRows[] = $row;
             }
-            $tablesRows[] = $row;
+
         }
 
         // Create a new Table instance.

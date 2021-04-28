@@ -7,14 +7,14 @@ use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Helper\TableStyle;
 
-class ListTable extends Command
+class ListTableCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'db:schema {table : The name of the table} {--f|full : List full details}';
+    protected $signature = 'db:table {name : The name of the table} {--f|full : List full details}';
 
     /**
      * The console command description.
@@ -31,8 +31,15 @@ class ListTable extends Command
     public function handle(): int
     {
         $connection = DB::connection();
+
+        $platform = DB::getDoctrineSchemaManager()->getDatabasePlatform();
+        $platform->registerDoctrineTypeMapping('enum', 'string');
+
+        $platform = DB::getDoctrineConnection()->getDatabasePlatform();
+        $platform->registerDoctrineTypeMapping('enum', 'string');
+
         $schemeManager = $connection->getDoctrineSchemaManager();
-        $table = $schemeManager->listTableDetails($this->argument('table'));
+        $table = $schemeManager->listTableDetails($this->argument('name'));
         $columns = $table->getColumns();
 
         //Check if table exists
@@ -87,7 +94,7 @@ class ListTable extends Command
             $columnRows
         );
 
-        $this->info('Table: ' . $this->argument('table'));
+        $this->info('Table: ' . $this->argument('name'));
 
         // Render the table to the output.
         $table->render();
